@@ -38,7 +38,9 @@ main{container-type:inline-size;width:min(100%,800px);min-height:1200px;margin:0
 .compose-card>.tabs button:hover,.compose-card>.tabs button:focus,.compose-card>.tabs button:focus-visible{background:transparent!important;box-shadow:none!important;filter:none!important;outline:0}
 .compose-card>.tabs button.on{background:transparent!important;transform:none;box-shadow:none!important}
 .writing-recess{width:76%;min-height:0;margin:8px auto 0;padding:clamp(11px,2.2vw,20px);border:1px solid #704624;border-radius:6px;background:linear-gradient(180deg,#120906e8,#28150ee3);box-shadow:inset 0 10px 28px #000c,inset 0 0 0 3px #3b1b0dbd,0 3px 7px #0008}
-.writing-recess h2{position:relative;width:max-content;max-width:92%;margin:0 auto 10px;padding:7px 28px;border:1px solid #806d51;border-radius:2px;background:radial-gradient(circle at 8px 50%,#a58b61 0 1.4px,#211a14 1.7px 2.7px,transparent 2.9px),radial-gradient(circle at calc(100% - 8px) 50%,#a58b61 0 1.4px,#211a14 1.7px 2.7px,transparent 2.9px),linear-gradient(#564838,#282019);box-shadow:inset 0 0 0 1px #17120e,0 2px 4px #000;color:#ead7ad;text-align:center;font-size:clamp(11px,1.7vw,14px);letter-spacing:.11em;text-shadow:0 1px #000}
+.section-plaque{position:relative;display:block;width:max-content;max-width:92%;margin:0 auto 10px;padding:7px 35px 7px 28px;border:1px solid #806d51;border-radius:2px;background:radial-gradient(circle at 8px 50%,#a58b61 0 1.4px,#211a14 1.7px 2.7px,transparent 2.9px),radial-gradient(circle at calc(100% - 8px) 50%,#a58b61 0 1.4px,#211a14 1.7px 2.7px,transparent 2.9px),linear-gradient(#564838,#282019);box-shadow:inset 0 0 0 1px #17120e,0 2px 4px #000;color:#ead7ad;text-align:center;font:bold clamp(11px,1.7vw,14px)/1.2 "Bookman Old Style",Georgia,serif;letter-spacing:.11em;text-transform:uppercase;text-shadow:0 1px #000;-webkit-tap-highlight-color:transparent}
+.section-plaque::after{content:"▾";position:absolute;right:17px;top:50%;transform:translateY(-53%);color:#c9aa6f;font-size:.9em}.section-plaque[aria-expanded="false"]::after{content:"▸"}
+.writing-recess.collapsed{min-height:0;padding:0;border:0;background:transparent;box-shadow:none}.writing-recess.collapsed .section-plaque{margin-bottom:0}
 .writing-recess label{color:#d8c29a;font-family:Georgia,"Times New Roman",serif;letter-spacing:.035em}
 .writing-recess input,.writing-recess textarea,.writing-recess select{background:linear-gradient(#f2e8d2,#dfcfad);border:1px solid #9b7746;color:#2a190e;border-radius:5px;box-shadow:inset 0 2px 4px #6b4a2438,0 1px #b5935a;padding:11px 12px;font-family:Georgia,"Times New Roman",serif}
 .writing-recess input::placeholder,.writing-recess textarea::placeholder{color:#79684f}.writing-recess input:focus,.writing-recess textarea:focus{border-color:#d4b66e;box-shadow:0 0 0 3px #bd914c42,inset 0 2px 4px #6b4a2438}
@@ -50,6 +52,7 @@ main{container-type:inline-size;width:min(100%,800px);min-height:1200px;margin:0
 .utility-card>#refreshBtn{position:absolute;top:0;right:0;width:calc(50% - 5px);min-height:44px;padding:8px 12px;border:1px solid #806846;border-radius:4px;background:linear-gradient(#4d351f,#25150d);color:#ead6aa;font:bold 14px/1 "Bookman Old Style",Georgia,serif;letter-spacing:.05em;box-shadow:inset 0 0 0 1px #140905,0 3px 7px #0008}
 .blotter-card{margin-top:2.5%;padding:clamp(25px,5.4vw,43px);border:0;border-radius:5px;background:#17231b url('vertical-leather-blotter.png') center/100% 100% no-repeat;box-shadow:0 0 0 2px #080504,0 8px 18px #000c;overflow:hidden}
 .blotter-card .toolbar{background:transparent}.blotter-card h2{color:#ead7b3;text-shadow:0 2px #11180e}.count{background:#28170f;border:1px solid #8b6236;color:#e6d0a4}.blotter-card .quiet{background:#23120daa;border-color:#8b593c;color:#ead4b4}
+.drawer-heading{display:grid;justify-items:center}.drawer-toggle{font-size:clamp(13px,2.3vw,18px);padding-block:9px;margin-bottom:10px}.drawer-tools{display:flex;align-items:center;justify-content:center;gap:clamp(10px,3vw,24px);width:100%;margin-bottom:2px}.drawer-tools .count{flex:none}.drawer-tools #cleanupBtn{flex:none}.drawer-body{margin-top:14px}
 .items{gap:11px}.item{border:1px solid #ac8a57;border-radius:4px;background:linear-gradient(100deg,#eadcbd,#d7c39a);color:#25160d;box-shadow:0 4px 8px #16030399;transform:rotate(-.15deg)}.item:nth-child(even){transform:rotate(.15deg)}
 .item .icon{background:#4a2516;color:#f1d7a5;border-radius:3px}.item .title{color:#2d190e}.item .meta{color:#775e43}.item .value{color:#332013}.item .value a{color:#63310f}.item .button,.item button{background:linear-gradient(#76502d,#4a2916);border-color:#a98150;color:#f4e0bd}.item .danger{background:linear-gradient(#7d4035,#4e211c)}
 .empty{border-color:#a25d49;color:#e6cdb5;background:#2b0d0b66}
@@ -68,8 +71,9 @@ main{container-type:inline-size;width:min(100%,800px);min-height:1200px;margin:0
     <div class="stack">
       <section class="card compose-card">
         <div class="tabs"><button id="noteTab" class="on" data-label="Note">Note</button><button id="linkTab" data-label="Link">Link</button><button id="fileTab" data-label="File">File</button></div>
-        <div class="writing-recess">
-        <h2>Drop something in</h2>
+        <div id="writingRecess" class="writing-recess">
+        <button id="composeToggle" type="button" class="section-plaque" aria-expanded="true" aria-controls="composeBody">Drop something in</button>
+        <div id="composeBody">
         <div id="textPane">
           <label for="title">Title (optional)</label><input id="title" maxlength="120" placeholder="A quick label">
           <label for="value" id="valueLabel">Note</label><textarea id="value" placeholder="Paste or type anything you want on your other device."></textarea>
@@ -80,6 +84,7 @@ main{container-type:inline-size;width:min(100%,800px);min-height:1200px;margin:0
           <div class="row" style="margin-top:11px"><label style="margin:0"><input id="pinNewFile" type="checkbox" style="width:auto"> Keep past 7 days</label><button id="saveFileBtn" class="primary">Upload file</button></div>
         </div>
         <div id="status" class="status">Connect the drawer below, then add a note, link, or file.</div>
+        </div>
         </div>
       </section>
       <section class="card utility-card">
@@ -97,8 +102,11 @@ main{container-type:inline-size;width:min(100%,800px);min-height:1200px;margin:0
       </section>
     </div>
     <section class="card blotter-card">
-      <div class="toolbar"><h2>Your drawer</h2><span id="count" class="count">0 items</span><div class="spacer"></div><button id="cleanupBtn" class="small quiet">Clean expired</button></div>
-      <div id="items" class="items"><div class="empty">Connect to load your drawer.</div></div>
+      <div class="drawer-heading">
+        <button id="drawerToggle" type="button" class="section-plaque drawer-toggle" aria-expanded="true" aria-controls="drawerBody">Your drawer</button>
+        <div class="drawer-tools"><span id="count" class="count">0 items</span><button id="cleanupBtn" class="small quiet">Clean expired</button></div>
+      </div>
+      <div id="drawerBody" class="drawer-body"><div id="items" class="items"><div class="empty">Connect to load your drawer.</div></div></div>
     </section>
   </div>
 </main>
@@ -122,6 +130,10 @@ function escapeHtml(value){return String(value??'').replace(/[&<>"']/g,ch=>({'&'
 function fmtDate(value){const d=new Date(value);return Number.isNaN(d.getTime())?'Unknown time':d.toLocaleString([], {month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})}
 function fmtSize(n){n=Number(n)||0;if(n<1024)return n+' B';if(n<1048576)return (n/1024).toFixed(1)+' KB';return (n/1048576).toFixed(1)+' MB'}
 function directViewUrl(item){return item&&item.fileId?'https://drive.google.com/uc?export=view&id='+encodeURIComponent(item.fileId):''}
+function delay(ms){return new Promise(resolve=>setTimeout(resolve,ms))}
+async function listWithRetry(){let firstError;try{return await post('list')}catch(err){firstError=err;await delay(700)}try{return await post('list')}catch(err){throw err||firstError}}
+function setCollapsible(toggleId,bodyId,expanded,containerId=''){const toggle=$(toggleId),body=$(bodyId);toggle.setAttribute('aria-expanded',String(expanded));body.classList.toggle('hidden',!expanded);if(containerId)$(containerId).classList.toggle('collapsed',!expanded)}
+function toggleCollapsible(toggleId,bodyId,containerId=''){setCollapsible(toggleId,bodyId,$(toggleId).getAttribute('aria-expanded')!=='true',containerId)}
 function endpointFor(action){const s=settings();return s.endpoint+'?action='+encodeURIComponent(action)+'&token='+encodeURIComponent(s.token)+'&_='+Date.now()}
 
 async function get(action){
@@ -142,17 +154,18 @@ function chooseMode(mode){
   state.mode=mode;['note','link','file'].forEach(x=>$(x+'Tab').classList.toggle('on',x===(mode==='text'?'note':mode)));
   $('textPane').classList.toggle('hidden',mode==='file');$('filePane').classList.toggle('hidden',mode!=='file');
   $('valueLabel').textContent=mode==='link'?'Web address':'Note';$('value').placeholder=mode==='link'?'https://example.com':'Paste or type anything you want on your other device.';
+  setCollapsible('composeToggle','composeBody',true,'writingRecess');
 }
 async function testConnection(){
   saveSettings();setStatus('Testing connection…');
-  try{const data=await post('list');state.items=data.items||[];setConnected(true);renderItems();setStatus('Connected. This device can open the shared drawer.','good');$('connectionDetails').open=false}
+  try{const data=await listWithRetry();state.items=data.items||[];setConnected(true);renderItems();setStatus('Connected. This device can open the shared drawer.','good');$('connectionDetails').open=false}
   catch(err){setConnected(false);$('connectionDetails').open=true;setStatus('Connection failed: '+err.message,'bad')}
 }
 async function loadItems(){
   if(!configured()){setConnected(false);$('items').innerHTML='<div class="empty">Open Connection settings to connect this device.</div>';return}
   $('items').innerHTML='<div class="empty">Opening drawer…</div>';
-  try{const data=await post('list');state.items=data.items||[];setConnected(true);renderItems()}
-  catch(err){setConnected(false);$('items').innerHTML='<div class="empty">Could not open drawer.<br>'+escapeHtml(err.message)+'</div>';setStatus('Load failed: '+err.message,'bad')}
+  try{const data=await listWithRetry();state.items=data.items||[];setConnected(true);renderItems()}
+  catch(err){setConnected(false);$('items').innerHTML='<div class="empty">Could not reach the drawer. Your saved connection is still stored; tap Refresh drawer to try again.<br>'+escapeHtml(err.message)+'</div>';setStatus('Temporary connection problem: '+err.message,'bad')}
 }
 function renderItems(){
   $('count').textContent=state.items.length+' item'+(state.items.length===1?'':'s');
@@ -200,6 +213,7 @@ async function cleanup(){
 }
 
 $('noteTab').onclick=()=>chooseMode('text');$('linkTab').onclick=()=>chooseMode('link');$('fileTab').onclick=()=>chooseMode('file');
+$('composeToggle').onclick=()=>toggleCollapsible('composeToggle','composeBody','writingRecess');$('drawerToggle').onclick=()=>toggleCollapsible('drawerToggle','drawerBody');
 $('connectBtn').onclick=testConnection;$('saveTextBtn').onclick=saveText;$('saveFileBtn').onclick=saveFile;$('refreshBtn').onclick=loadItems;$('cleanupBtn').onclick=cleanup;$('items').onclick=itemAction;
 $('viewerClose').onclick=closeImageViewer;$('imageViewer').onclick=e=>{if(e.target===$('imageViewer')||e.target.classList.contains('viewer-stage'))closeImageViewer()};document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('imageViewer').classList.contains('hidden'))closeImageViewer()});
 $('forgetBtn').onclick=()=>{localStorage.removeItem(SETTINGS_KEY);$('endpoint').value='';$('token').value='';setConnected(false);$('connectionDetails').open=true;setStatus('Connection settings removed from this browser.');loadItems()};
