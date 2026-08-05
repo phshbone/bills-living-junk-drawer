@@ -1,0 +1,24 @@
+{
+  "name": "Bill's Living Junk Drawer",
+  "short_name": "Junk Drawer",
+  "description": "A private cross-device drawer for temporary notes, links, and files.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#050302",
+  "theme_color": "#1b0d07",
+  "icons": [
+    {
+      "src": "junk-drawer-icon-unified-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "junk-drawer-icon-unified-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
