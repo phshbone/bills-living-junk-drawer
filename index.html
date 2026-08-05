@@ -22,21 +22,20 @@ label{display:block;color:var(--muted);font-size:12px;font-weight:650;margin:11p
 html{background:#050302}
 body{background:radial-gradient(ellipse at top,#20140d 0,#070403 62%,#020101 100%);color:#f7ead3;font-family:Georgia,"Times New Roman",serif}
 body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 50% 15%,#6d3a1b32,transparent 45%)}
-header{position:absolute;top:0;left:50%;transform:translateX(-50%);width:min(100%,800px);height:auto;padding:clamp(18px,4cqw,34px) clamp(16px,5cqw,40px);background:transparent;border:0;backdrop-filter:none;text-shadow:0 2px 3px #000,0 0 14px #000;align-items:flex-start}
-header h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(20px,4.8cqw,34px);letter-spacing:.045em;color:#efdcb3;text-transform:lowercase}
+header{position:absolute;top:0;left:50%;transform:translateX(-50%);width:min(100%,800px);height:auto;padding:clamp(18px,4vw,34px) clamp(38px,7vw,58px);background:transparent;border:0;backdrop-filter:none;text-shadow:0 2px 3px #000,0 0 14px #000;align-items:flex-start;justify-content:center;text-align:center}
+header h1{font-family:"Bookman Old Style","Palatino Linotype",Georgia,"Times New Roman",serif;font-size:clamp(20px,4.2vw,34px);letter-spacing:.015em;color:#efdcb3;text-transform:lowercase}
 header h1::after{content:"a place for everything temporary";display:block;margin-top:4px;color:#c8a66b;font:italic clamp(10px,1.8cqw,13px)/1.2 Georgia,serif;letter-spacing:.06em}
-header .dot{margin-top:7px;background:#a86e2e;box-shadow:0 0 0 3px #2d160b,0 0 9px #ddac53}.dot.ok{background:#7b9d6e;box-shadow:0 0 0 3px #2d160b,0 0 9px #9fd38d}
-header button{margin-top:0;flex:none;background:linear-gradient(#b69a5e,#745625);border:1px solid #e2c887;color:#261408;font-weight:700;box-shadow:inset 0 1px #f1dba7,0 2px 5px #0008;text-shadow:0 1px #e8cf91}
+header .dot{position:absolute;left:clamp(18px,5vw,42px);top:clamp(22px,4vw,38px);margin:0;background:#a86e2e;box-shadow:0 0 0 3px #2d160b,0 0 9px #ddac53}.dot.ok{background:#7b9d6e;box-shadow:0 0 0 3px #2d160b,0 0 9px #9fd38d}
 main{container-type:inline-size;width:min(100%,800px);min-height:1200px;margin:0 auto;padding:clamp(165px,40vw,320px) 5.2% 90px;background-image:linear-gradient(to bottom,transparent 0 72%,#160805b5 100%),url('rolltop-desk-skin.png');background-repeat:no-repeat;background-position:top center;background-size:100% auto;filter:drop-shadow(0 22px 35px #000);isolation:isolate}
 .grid{display:grid;grid-template-columns:1fr;gap:16px}.stack{display:grid;gap:14px}.card{box-shadow:none}
 .compose-card{padding:0;background:transparent;border:0;border-radius:0}
-.compose-card>.tabs{height:clamp(54px,11.6vw,92px);display:grid;grid-template-columns:repeat(3,1fr);gap:1.8%;margin:0 0 2%}
+.compose-card>.tabs{width:75%;height:clamp(54px,11.6vw,92px);display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:clamp(3px,.7vw,6px) auto 3%}
 .compose-card>.tabs button{position:relative;display:flex;align-items:center;justify-content:center;padding:0;border:0;border-radius:2px;background:transparent;color:transparent;box-shadow:none;transform:translateY(0)}
-.compose-card>.tabs button::after{content:attr(data-label);display:grid;place-items:center;width:min(46%,112px);height:clamp(23px,3.8vw,32px);border:1px solid #79684f;border-radius:2px;background:radial-gradient(circle at 7px 50%,#a28b67 0 1.3px,#241c15 1.6px 2.5px,transparent 2.7px),radial-gradient(circle at calc(100% - 7px) 50%,#a28b67 0 1.3px,#241c15 1.6px 2.5px,transparent 2.7px),linear-gradient(#584a39,#282019 48%,#403429);box-shadow:inset 0 0 0 1px #17120e,0 1px 2px #0009;color:#ead9b5;text-shadow:0 1px 1px #000;font:bold clamp(10px,1.7vw,14px)/1 Georgia,serif;letter-spacing:.075em;text-transform:uppercase}
+.compose-card>.tabs button::after{content:attr(data-label);display:grid;place-items:center;width:42%;height:27%;border:0;background:transparent;box-shadow:none;color:#e8d5ad;text-shadow:0 1px 1px #000,0 0 3px #000;font:bold clamp(10px,1.6vw,14px)/1 "Bookman Old Style",Georgia,serif;letter-spacing:.055em;text-transform:uppercase;transform:translateY(-3px)}
 .compose-card>.tabs button:hover,.compose-card>.tabs button:focus-visible{filter:brightness(1.17)}
-.compose-card>.tabs button.on{background:#16090538;transform:translateY(2px);box-shadow:inset 0 5px 10px #08030188}
-.compose-card>.tabs button.on::after{border-color:#a38a62;background:radial-gradient(circle at 7px 50%,#b59c74 0 1.3px,#241c15 1.6px 2.5px,transparent 2.7px),radial-gradient(circle at calc(100% - 7px) 50%,#b59c74 0 1.3px,#241c15 1.6px 2.5px,transparent 2.7px),linear-gradient(#675744,#332820 48%,#4b3d30);color:#fff0cb}
-.writing-recess{width:76%;min-height:0;margin:0 auto;padding:clamp(11px,2.2vw,20px);border:1px solid #704624;border-radius:6px;background:linear-gradient(180deg,#120906e8,#28150ee3);box-shadow:inset 0 10px 28px #000c,inset 0 0 0 3px #3b1b0dbd,0 3px 7px #0008}
+.compose-card>.tabs button.on{background:#1609051f;transform:translateY(1px);box-shadow:inset 0 4px 8px #08030166}
+.compose-card>.tabs button.on::after{color:#fff1c9;text-shadow:0 1px 1px #000,0 0 5px #d7ba7440}
+.writing-recess{width:76%;min-height:0;margin:8px auto 0;padding:clamp(11px,2.2vw,20px);border:1px solid #704624;border-radius:6px;background:linear-gradient(180deg,#120906e8,#28150ee3);box-shadow:inset 0 10px 28px #000c,inset 0 0 0 3px #3b1b0dbd,0 3px 7px #0008}
 .writing-recess h2{position:relative;width:max-content;max-width:92%;margin:0 auto 10px;padding:7px 28px;border:1px solid #806d51;border-radius:2px;background:radial-gradient(circle at 8px 50%,#a58b61 0 1.4px,#211a14 1.7px 2.7px,transparent 2.9px),radial-gradient(circle at calc(100% - 8px) 50%,#a58b61 0 1.4px,#211a14 1.7px 2.7px,transparent 2.9px),linear-gradient(#564838,#282019);box-shadow:inset 0 0 0 1px #17120e,0 2px 4px #000;color:#ead7ad;text-align:center;font-size:clamp(11px,1.7vw,14px);letter-spacing:.11em;text-shadow:0 1px #000}
 .writing-recess label{color:#d8c29a;font-family:Georgia,"Times New Roman",serif;letter-spacing:.035em}
 .writing-recess input,.writing-recess textarea,.writing-recess select{background:linear-gradient(#f2e8d2,#dfcfad);border:1px solid #9b7746;color:#2a190e;border-radius:5px;box-shadow:inset 0 2px 4px #6b4a2438,0 1px #b5935a;padding:11px 12px;font-family:Georgia,"Times New Roman",serif}
@@ -44,20 +43,21 @@ main{container-type:inline-size;width:min(100%,800px);min-height:1200px;margin:0
 .writing-recess .primary,.connection-card .primary,header button{position:relative;background:radial-gradient(circle at 9px 50%,#a68e69 0 1.5px,#251e17 1.8px 2.8px,transparent 3px),radial-gradient(circle at calc(100% - 9px) 50%,#a68e69 0 1.5px,#251e17 1.8px 2.8px,transparent 3px),linear-gradient(#62523f,#30271f 50%,#493b2f);border:1px solid #8e7959;color:#f0ddb5;font-weight:700;text-shadow:0 1px #000;box-shadow:inset 0 0 0 1px #1b1510,0 3px 5px #0007}
 .writing-recess input[type=checkbox]{accent-color:#8d6b31;box-shadow:none}
 .status{background:#120a07c9;border:1px solid #6e4927;color:#d9c8aa;border-radius:5px;font-family:system-ui,sans-serif}.status.good{border-color:#81916b;color:#dce7c5}.status.bad{border-color:#a95e52;color:#ffd7ca}
-.connection-card{margin:0 2cqw;padding:11px 14px;background:linear-gradient(90deg,#241108e8,#432411e8,#241108e8);border:1px solid #80572f;border-radius:6px;box-shadow:inset 0 0 0 2px #160904,0 3px 8px #0009}
-.connection-card summary{color:#d7ba7c;text-align:center;letter-spacing:.07em}.connection-card input{background:#eee1c5;color:#28170d;border-color:#9b7746;border-radius:4px}.connection-card .help{color:#cbb995}.setup-steps{margin:9px 0 3px;padding:9px 11px;border-left:3px solid #8e7650;background:#160b0780;color:#dfcfaf;font:13px/1.45 system-ui,sans-serif}
+.utility-card{position:relative;width:76%;min-height:44px;margin:18px auto 0;padding:0;background:transparent;border:0;border-radius:0;box-shadow:none}
+.connection-card{margin:0;padding:0;background:transparent;border:0;box-shadow:none}.connection-card summary{display:grid;place-items:center;width:calc(50% - 5px);min-height:44px;padding:8px 12px;border:1px solid #806846;border-radius:4px;background:linear-gradient(#4d351f,#25150d);color:#dbc38e;text-align:center;letter-spacing:.05em;cursor:pointer;box-shadow:inset 0 0 0 1px #140905,0 3px 7px #0008}.connection-card[open] summary{margin-bottom:10px}.connection-card .settings{padding:12px 14px;border:1px solid #80572f;border-radius:6px;background:linear-gradient(90deg,#241108f2,#432411f2,#241108f2);box-shadow:inset 0 0 0 2px #160904,0 3px 8px #0009}.connection-card input{background:#eee1c5;color:#28170d;border-color:#9b7746;border-radius:4px}.connection-card .help{color:#cbb995}.setup-steps{margin:9px 0 3px;padding:9px 11px;border-left:3px solid #8e7650;background:#160b0780;color:#dfcfaf;font:13px/1.45 system-ui,sans-serif}
+.utility-card>#refreshBtn{position:absolute;top:0;right:0;width:calc(50% - 5px);min-height:44px;padding:8px 12px;border:1px solid #806846;border-radius:4px;background:linear-gradient(#4d351f,#25150d);color:#ead6aa;font:bold 14px/1 "Bookman Old Style",Georgia,serif;letter-spacing:.05em;box-shadow:inset 0 0 0 1px #140905,0 3px 7px #0008}
 .blotter-card{margin-top:2.5%;padding:clamp(15px,3.8vw,30px);border:13px solid #2a100b;border-radius:7px;background:radial-gradient(ellipse at 45% 18%,#52604b,#364336 58%,#263127);box-shadow:inset 0 0 0 3px #6c3a29,inset 0 0 35px #10180e,0 0 0 4px #4b2117,0 7px 14px #000b}
 .blotter-card .toolbar{background:transparent}.blotter-card h2{color:#ead7b3;text-shadow:0 2px #11180e}.count{background:#28170f;border:1px solid #8b6236;color:#e6d0a4}.blotter-card .quiet{background:#23120daa;border-color:#8b593c;color:#ead4b4}
 .items{gap:11px}.item{border:1px solid #ac8a57;border-radius:4px;background:linear-gradient(100deg,#eadcbd,#d7c39a);color:#25160d;box-shadow:0 4px 8px #16030399;transform:rotate(-.15deg)}.item:nth-child(even){transform:rotate(.15deg)}
 .item .icon{background:#4a2516;color:#f1d7a5;border-radius:3px}.item .title{color:#2d190e}.item .meta{color:#775e43}.item .value{color:#332013}.item .value a{color:#63310f}.item .button,.item button{background:linear-gradient(#76502d,#4a2916);border-color:#a98150;color:#f4e0bd}.item .danger{background:linear-gradient(#7d4035,#4e211c)}
 .empty{border-color:#a25d49;color:#e6cdb5;background:#2b0d0b66}
-@media(max-width:760px){header{width:96%;padding-top:14px;padding-inline:10px;gap:7px}header h1{max-width:none;white-space:nowrap;font-size:18px;letter-spacing:0}header h1::after{font-size:10px}header button{padding:8px 10px;font-size:13px}main{width:96%;min-height:100vh;padding:clamp(165px,40vw,320px) 2.6% 60px}.compose-card>.tabs{gap:1%;margin-bottom:2%}.compose-card>.tabs button::after{width:51%;font-size:10px}.writing-recess{width:82%;padding:10px}.writing-recess textarea{min-height:96px}.writing-recess input,.writing-recess textarea{padding:9px 10px}.writing-recess .row{align-items:center}.writing-recess .primary{padding:9px 11px}.status{font-size:13px}.connection-card{width:88%;margin-inline:auto;padding:10px}.connection-card label{font-size:11px}.connection-card input{padding:9px}.connection-card .row{gap:7px}.blotter-card{border-width:9px;padding:12px}.toolbar{position:static;padding:0}.item{padding:11px}.actions button,.actions a{flex:1}}
-@media(min-width:761px){.connection-card{margin-inline:12%}.blotter-card{margin-inline:3%}}
+@media(max-width:760px){header{width:96%;padding-top:14px;padding-inline:34px;gap:0}header h1{max-width:none;white-space:nowrap;font-size:clamp(17px,5vw,21px);letter-spacing:0}header h1::after{font-size:10px}main{width:96%;min-height:100vh;padding:clamp(165px,40vw,320px) 2.6% 60px}.compose-card>.tabs{margin-top:5px;margin-bottom:3%}.compose-card>.tabs button::after{width:48%;font-size:10px;transform:translateY(-2px)}.writing-recess{width:82%;margin-top:7px;padding:10px}.writing-recess textarea{min-height:96px}.writing-recess input,.writing-recess textarea{padding:9px 10px}.writing-recess .row{align-items:center}.writing-recess .primary{padding:9px 11px}.status{font-size:13px}.utility-card{width:82%;margin-top:16px}.connection-card label{font-size:11px}.connection-card input{padding:9px}.connection-card .row{gap:7px}.blotter-card{border-width:9px;padding:12px}.toolbar{position:static;padding:0}.item{padding:11px}.actions button,.actions a{flex:1}}
+@media(min-width:761px){.blotter-card{margin-inline:3%}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<header><div id="connectionDot" class="dot"></div><h1>bill's living junk drawer</h1><div class="spacer"></div><button id="refreshBtn" class="small">Refresh</button></header>
+<header><div id="connectionDot" class="dot"></div><h1>bill's living junk drawer</h1></header>
 <main>
   <div class="grid">
     <div class="stack">
@@ -77,9 +77,9 @@ main{container-type:inline-size;width:min(100%,800px);min-height:1200px;margin:0
         <div id="status" class="status">Connect the drawer below, then add a note, link, or file.</div>
         </div>
       </section>
-      <section class="card connection-card">
-        <details id="connectionDetails">
-          <summary>Connect this device (one-time setup)</summary>
+      <section class="card utility-card">
+        <details id="connectionDetails" class="connection-card">
+          <summary>Connection</summary>
           <div class="settings">
             <div class="setup-steps"><strong>This does not create a new account.</strong><br>1. Paste the <code>/exec</code> URL Google gives you after deploying Code.gs.<br>2. Enter the exact same <code>SECRET_TOKEN</code> written near the top of Code.gs.</div>
             <label for="endpoint">1. Deployed Apps Script URL</label><input id="endpoint" inputmode="url" placeholder="https://script.google.com/macros/s/.../exec">
@@ -88,6 +88,7 @@ main{container-type:inline-size;width:min(100%,800px);min-height:1200px;margin:0
             <p class="help">The passcode is not invented here—it must match Code.gs. Enter the same URL and passcode once on each device.</p>
           </div>
         </details>
+        <button id="refreshBtn" class="small">Refresh drawer</button>
       </section>
     </div>
     <section class="card blotter-card">
