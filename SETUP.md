@@ -5,6 +5,7 @@ This package contains the two pieces that actually belong together:
 - `Code.gs`: the Google Apps Script backend that stores the shared drawer in Google Drive.
 - `index.html`: the Junk Drawer interface for GitHub Pages or another static host.
 - `rolltop-desk-skin-v3.png`: the photographic ledger-and-roll-top desk skin used by `index.html`.
+- `rolltop-footwell-extension.png`: the matching lower desk, carved legs, footwell, and floor continuation shown beneath the main desk image.
 - `vertical-leather-blotter.png`: the photographic black-and-green leather surface behind the saved items.
 - `junk-drawer-icon-unified.png`: the full-resolution icon with the same label plate and compact pull used on the desk drawers.
 - `junk-drawer-icon-unified-192.png`, `junk-drawer-icon-unified-512.png`, and `manifest.webmanifest`: installable app/home-screen assets.
@@ -12,6 +13,10 @@ This package contains the two pieces that actually belong together:
 Keep all of these files in the same published folder as `index.html`.
 
 The roll-top version changes only the presentation layer. Note, Link, File, connection, expiration, pinning, deletion, and cleanup still use the same repaired backend contract.
+
+On phone-sized screens the interface applies a subtle neutral exposure lift to the desk photograph so the engraved drawer labels and ledger lettering remain readable without washing out the walnut. Desktop lighting is unchanged. Images open inside the Junk Drawer instead of repeatedly handing off to the Google Drive app.
+
+The entry form and saved-item drawer can each be collapsed from their brass heading plaque. Connection settings remain stored in the browser; list requests retry once after a brief connection interruption before showing an error.
 
 The older `app-maker-bridge.html`, `index(4).html`, and original `Code.gs` are a separate Image Lab → App Maker prototype. They use a different API and cannot operate the Living Junk Drawer backend.
 
@@ -32,7 +37,8 @@ The older `app-maker-bridge.html`, `index(4).html`, and original `Code.gs` are a
 
 ## Put the interface online
 
-1. Upload everything in this package to the GitHub Pages repository/folder for Bill's Junk Drawer. Keep the image and manifest filenames unchanged.
+1. Upload `index.html`, `manifest.webmanifest`, `rolltop-desk-skin-v3.png`, `rolltop-footwell-extension.png`, `vertical-leather-blotter.png`, and the three `junk-drawer-icon-unified` PNG files to the GitHub Pages repository/folder. Keep their filenames unchanged.
+   Do **not** publish `Code.gs` to GitHub Pages; it contains your private drawer token and belongs only in Google Apps Script.
 2. Open the published page.
 3. Open **Connection settings**.
 4. Paste the Apps Script `/exec` URL and the exact `SECRET_TOKEN` from `Code.gs`.
