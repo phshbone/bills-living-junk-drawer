@@ -59,7 +59,7 @@ main::after{content:"";position:absolute;left:0;right:0;top:150cqw;height:calc(1
 .empty{border-color:#a25d49;color:#e6cdb5;background:#2b0d0b66}
 .image-viewer{position:fixed;inset:0;z-index:20;display:grid;grid-template-rows:auto 1fr;gap:10px;padding:max(12px,env(safe-area-inset-top)) 12px max(12px,env(safe-area-inset-bottom));background:#050302ed;backdrop-filter:blur(8px)}
 .image-viewer .viewer-bar{display:flex;align-items:center;gap:10px;width:min(100%,900px);margin:auto;color:#f2dfbc}.image-viewer .viewer-title{min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}.image-viewer .viewer-close{flex:none;background:#3b281b;border-color:#92714b;color:#f3dfbc}
-.image-viewer .viewer-stage{display:grid;place-items:center;min-height:0}.image-viewer img{display:block;max-width:100%;max-height:100%;object-fit:contain;border:1px solid #765536;box-shadow:0 12px 40px #000}
+.image-viewer .viewer-stage{position:relative;display:grid;place-items:center;min-height:0}.image-viewer img{display:block;max-width:100%;max-height:100%;object-fit:contain;border:1px solid #765536;box-shadow:0 12px 40px #000}.viewer-message{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(82%,420px);padding:14px 18px;border:1px solid #806846;border-radius:5px;background:#1b0d08e8;color:#ead8b8;text-align:center;font:15px/1.45 system-ui,sans-serif;box-shadow:0 8px 24px #000b}
 @media(max-width:760px){main{width:96%;min-height:max(100vh,240vw);padding:54.4vw 2.6% 60px;background-image:linear-gradient(180deg,#fff7ec14 0,#f5eee30f 62%,#ffffff08 100%),linear-gradient(to bottom,transparent 0 76%,#1608058a 100%),url('rolltop-desk-skin-v3.png')}.compose-card>.tabs{margin-top:0;margin-bottom:2.2%}.writing-recess{width:82%;margin-top:7px;padding:10px}.writing-recess textarea{min-height:96px}.writing-recess input,.writing-recess textarea{padding:9px 10px}.writing-recess .row{align-items:center}.writing-recess .primary{padding:9px 11px}.status{font-size:13px}.utility-card{width:82%;margin-top:16px}.connection-card label{font-size:11px}.connection-card input{padding:9px}.connection-card .row{gap:7px}.blotter-card{padding:24px 22px}.toolbar{position:static;padding:0}.item{padding:11px}.actions button,.actions a{flex:1}}
 @media(min-width:761px){.blotter-card{margin-inline:3%}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
@@ -113,7 +113,7 @@ main::after{content:"";position:absolute;left:0;right:0;top:150cqw;height:calc(1
 </main>
 <div id="imageViewer" class="image-viewer hidden" role="dialog" aria-modal="true" aria-labelledby="viewerTitle">
   <div class="viewer-bar"><div id="viewerTitle" class="viewer-title">Image preview</div><button id="viewerClose" class="viewer-close small">Close</button></div>
-  <div class="viewer-stage"><img id="viewerImage" alt=""></div>
+  <div class="viewer-stage"><div id="viewerMessage" class="viewer-message">Opening image…</div><img id="viewerImage" class="hidden" alt=""></div>
 </div>
 <script>
 'use strict';
@@ -179,7 +179,7 @@ function renderItems(){
     else body='<div class="value">'+escapeHtml(item.fileName||'File')+' · '+fmtSize(item.size)+'</div>';
     const isImage=item.type==='file'&&/^image\//i.test(item.mimeType||'');
     const browserUrl=directViewUrl(item)||item.viewUrl||item.downloadUrl||'';
-    const open=isImage&&browserUrl?'<button class="small" data-action="preview">Open</button>':item.type==='file'&&browserUrl?'<a class="button small" href="'+escapeHtml(browserUrl)+'" target="_blank" rel="noopener">Open</a>':'';
+    const open=isImage&&item.fileId?'<button class="small" data-action="preview">Open</button>':item.type==='file'&&browserUrl?'<a class="button small" href="'+escapeHtml(browserUrl)+'" target="_blank" rel="noopener">Open</a>':'';
     return '<article class="item" data-id="'+escapeHtml(item.id)+'"><div class="item-top"><div class="icon">'+icon+'</div><div class="item-main"><div class="title">'+escapeHtml(item.title||'Untitled')+'</div><div class="meta">'+fmtDate(item.createdAt)+(item.pinned?' · pinned':item.stale?' · expired':' · removes '+fmtDate(item.expiresAt))+'</div></div></div>'+body+'<div class="actions">'+open+'<button class="small" data-action="pin">'+(item.pinned?'Unpin':'Pin')+'</button><button class="small danger" data-action="delete">Delete</button></div></article>';
   }).join('');
 }
@@ -199,16 +199,17 @@ async function saveFile(){
 }
 async function itemAction(event){
   const button=event.target.closest('[data-action]');if(!button)return;const article=button.closest('[data-id]');const item=state.items.find(x=>String(x.id)===article.dataset.id);if(!item)return;
-  if(button.dataset.action==='preview'){openImageViewer(item);return}
+  if(button.dataset.action==='preview'){button.disabled=true;try{await openImageViewer(item)}finally{button.disabled=false}return}
   button.disabled=true;
   try{if(button.dataset.action==='pin')await post('pin',{id:item.id,pinned:!item.pinned});else if(button.dataset.action==='delete'){if(!confirm('Delete “'+(item.title||'this item')+'”?'))return;await post('delete',{id:item.id})}await loadItems()}
   catch(err){setStatus('Action failed: '+err.message,'bad')}finally{button.disabled=false}
 }
-function openImageViewer(item){
-  const url=directViewUrl(item)||item.viewUrl||item.downloadUrl;if(!url)return;
-  $('viewerTitle').textContent=item.title||item.fileName||'Image preview';$('viewerImage').alt=item.title||item.fileName||'Saved image';$('viewerImage').src=url;$('imageViewer').classList.remove('hidden');document.body.style.overflow='hidden';$('viewerClose').focus();
+async function openImageViewer(item){
+  $('viewerTitle').textContent=item.title||item.fileName||'Image preview';$('viewerImage').alt=item.title||item.fileName||'Saved image';$('viewerImage').classList.add('hidden');$('viewerImage').removeAttribute('src');$('viewerMessage').textContent='Opening image…';$('viewerMessage').classList.remove('hidden');$('imageViewer').classList.remove('hidden');document.body.style.overflow='hidden';$('viewerClose').focus();
+  try{const data=await post('getFile',{id:item.id});$('viewerImage').onload=()=>{$('viewerMessage').classList.add('hidden');$('viewerImage').classList.remove('hidden')};$('viewerImage').onerror=()=>{$('viewerMessage').textContent='The image data arrived, but this browser could not display it.'};$('viewerImage').src='data:'+(data.mimeType||item.mimeType||'image/jpeg')+';base64,'+data.base64Data}
+  catch(err){$('viewerMessage').textContent='Could not open this image: '+err.message}
 }
-function closeImageViewer(){$('imageViewer').classList.add('hidden');$('viewerImage').removeAttribute('src');document.body.style.overflow=''}
+function closeImageViewer(){$('imageViewer').classList.add('hidden');$('viewerImage').onload=null;$('viewerImage').onerror=null;$('viewerImage').removeAttribute('src');$('viewerImage').classList.add('hidden');$('viewerMessage').classList.remove('hidden');document.body.style.overflow=''}
 async function cleanup(){
   $('cleanupBtn').disabled=true;try{const data=await post('cleanup');setStatus(data.message||'Cleanup complete.','good');await loadItems()}catch(err){setStatus('Cleanup failed: '+err.message,'bad')}finally{$('cleanupBtn').disabled=false}
 }

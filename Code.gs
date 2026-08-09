@@ -122,6 +122,10 @@ function doPost(e) {
       return createFileItem_(data);
     }
 
+    if (action === 'getFile') {
+      return getFileItem_(data);
+    }
+
     if (action === 'delete') {
       return deleteItem_(data);
     }
@@ -334,6 +338,51 @@ function listItems_() {
     count: items.length,
     items: items
   });
+}
+
+function getFileItem_(data) {
+  const id = String(data.id || '').trim();
+
+  if (!id) {
+    return jsonResponse_({ ok: false, error: 'Missing id' });
+  }
+
+  const sheet = getIndexSheet_();
+  const values = sheet.getDataRange().getValues();
+
+  for (let i = 1; i < values.length; i++) {
+    const row = values[i];
+
+    if (String(row[0]) !== id || bool_(row[11])) continue;
+    if (String(row[1]) !== 'file' || !row[4]) {
+      return jsonResponse_({ ok: false, error: 'That drawer item is not a file.' });
+    }
+
+    const indexedMimeType = String(row[6] || 'application/octet-stream');
+    if (indexedMimeType.indexOf('image/') !== 0) {
+      return jsonResponse_({ ok: false, error: 'Only images open inside the drawer viewer.' });
+    }
+
+    const file = DriveApp.getFileById(String(row[4]));
+    const blob = file.getBlob();
+    const bytes = blob.getBytes();
+
+    if (bytes.length > MAX_FILE_SIZE_BYTES) {
+      return jsonResponse_({ ok: false, error: 'That image is larger than the viewer limit.' });
+    }
+
+    const blobMimeType = String(blob.getContentType() || '');
+
+    return jsonResponse_({
+      ok: true,
+      id: id,
+      fileName: row[5] || file.getName(),
+      mimeType: blobMimeType.indexOf('image/') === 0 ? blobMimeType : indexedMimeType,
+      base64Data: Utilities.base64Encode(bytes)
+    });
+  }
+
+  return jsonResponse_({ ok: false, error: 'Image not found in the drawer.' });
 }
 
 function deleteItem_(data) {
