@@ -7,4 +7,232 @@
 <title>bill's living junk drawer</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" sizes="192x192" href="junk-drawer-icon-unified-192.png">
-<link rel="
+<link rel="apple-touch-icon" href="junk-drawer-icon-unified-512.png">
+<style>
+:root{--navy:#0b1026;--panel:#151c37;--panel2:#1d2748;--line:#344164;--text:#f4f5fa;--muted:#acb4cb;--green:#779a83;--amber:#c49562;--red:#b96f73;--purple:#8e78a7;--shadow:0 14px 35px #05081770}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 80% 0,#1c2750 0,transparent 35%),var(--navy);color:var(--text);font:16px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+button,input,textarea,select{font:inherit}button{cursor:pointer}header{position:sticky;top:0;z-index:4;display:flex;align-items:center;gap:12px;padding:14px max(16px,env(safe-area-inset-right)) 14px max(16px,env(safe-area-inset-left));background:#0b1026e8;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+h1{font-size:clamp(18px,4vw,25px);margin:0;letter-spacing:.3px}.spacer{flex:1}.dot{width:11px;height:11px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 5px #c4956220}.dot.ok{background:var(--green)}
+main{width:min(1050px,100%);margin:auto;padding:18px 16px 80px}.grid{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:16px}.stack{display:grid;gap:16px;align-content:start}.card{background:linear-gradient(160deg,#171f3d,#121932);border:1px solid var(--line);border-radius:19px;padding:16px;box-shadow:var(--shadow)}
+h2{font-size:15px;margin:0 0 13px;text-transform:uppercase;letter-spacing:.07em;color:#d9dded}.tabs{display:flex;gap:7px;margin-bottom:12px}.tabs button{flex:1}.tabs button.on{background:var(--purple);border-color:#b7a4ce;color:#fff}
+label{display:block;color:var(--muted);font-size:12px;font-weight:650;margin:11px 0 5px}input,textarea,select{width:100%;color:var(--text);background:#090e22;border:1px solid var(--line);border-radius:12px;padding:11px;outline:none}textarea{min-height:128px;resize:vertical}input:focus,textarea:focus{border-color:#8794ba;box-shadow:0 0 0 3px #8794ba22}
+.row{display:flex;gap:9px;flex-wrap:wrap}.row>*{flex:1}.button,button{border:1px solid var(--line);border-radius:12px;padding:10px 13px;background:var(--panel2);color:var(--text);text-decoration:none;text-align:center}.primary{background:#526f5d;border-color:#91ad99}.danger{background:#59323b;border-color:#9b5c64}.quiet{background:transparent}.small{padding:7px 10px;font-size:13px}.status{margin-top:12px;border-radius:12px;padding:10px 12px;background:#090e22;color:var(--muted);white-space:pre-wrap}.status.bad{border:1px solid var(--red);color:#ffd4d6}.status.good{border:1px solid var(--green);color:#d9f5e2}
+.drop{border:1px dashed #657297;border-radius:14px;padding:17px;text-align:center;color:var(--muted)}.drop input{margin-top:10px}.toolbar{display:flex;align-items:center;gap:9px;margin-bottom:12px}.toolbar h2{margin:0}.count{border-radius:999px;background:#2b365c;padding:4px 9px;color:#dfe4f6;font-size:12px}.items{display:grid;gap:10px}.item{border:1px solid var(--line);border-radius:15px;padding:12px;background:#101730}.item-top{display:flex;gap:10px;align-items:flex-start}.icon{display:grid;place-items:center;width:40px;height:40px;flex:none;border-radius:11px;background:#293658;font-size:19px}.item-main{min-width:0;flex:1}.title{font-weight:750;overflow-wrap:anywhere}.meta{font-size:12px;color:var(--muted);margin-top:3px}.value{margin-top:9px;color:#e7e9f2;white-space:pre-wrap;overflow-wrap:anywhere}.value a{color:#9ec5ff}.actions{display:flex;gap:7px;margin-top:10px;flex-wrap:wrap}.actions button,.actions a{flex:0 1 auto}.empty{padding:35px 15px;border:1px dashed var(--line);border-radius:14px;text-align:center;color:var(--muted)}details summary{cursor:pointer;color:#dce1ef;font-weight:700}.settings{margin-top:12px}.help{font-size:12px;color:var(--muted);margin:7px 0 0}.hidden{display:none!important}
+@media(max-width:760px){.grid{grid-template-columns:1fr}header .label{display:none}.card{border-radius:16px}main{padding-inline:11px}.row.stack-mobile{display:grid}.actions button,.actions a{flex:1}.toolbar{position:sticky;top:62px;z-index:2;background:#141c37;padding:7px 0}}
+</style>
+<style id="rolltop-desk-skin">
+:root{--desk-walnut:#3a1b0e;--desk-dark:#160b07;--desk-brass:#a78342;--desk-brass-hi:#d1b878;--desk-leather:#471a16;--desk-cream:#eee1c5}
+html{background:#050302}
+body{background:radial-gradient(ellipse at top,#20140d 0,#070403 62%,#020101 100%);color:#f7ead3;font-family:Georgia,"Times New Roman",serif}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 50% 15%,#6d3a1b32,transparent 45%)}
+header{display:none}
+header h1{font-family:"Bookman Old Style","Palatino Linotype",Georgia,"Times New Roman",serif;font-size:clamp(20px,4.2vw,34px);letter-spacing:.015em;color:#efdcb3;text-transform:lowercase}
+header h1::after{content:"a place for everything temporary";display:block;margin-top:4px;color:#c8a66b;font:italic clamp(10px,1.8cqw,13px)/1.2 Georgia,serif;letter-spacing:.06em}
+header .dot{position:absolute;left:clamp(18px,5vw,42px);top:clamp(22px,4vw,38px);margin:0;background:#a86e2e;box-shadow:0 0 0 3px #2d160b,0 0 9px #ddac53}.dot.ok{background:#7b9d6e;box-shadow:0 0 0 3px #2d160b,0 0 9px #9fd38d}
+main{position:relative;container-type:inline-size;width:min(100%,800px);min-height:1200px;margin:0 auto;padding:clamp(220px,54.4vw,435px) 5.2% 90px;background-image:linear-gradient(to bottom,transparent 0 76%,#1608059c 100%),url('rolltop-desk-skin-v3.png');background-repeat:no-repeat;background-position:top center;background-size:100% auto;filter:drop-shadow(0 22px 35px #000);isolation:isolate}
+main::after{content:"";position:absolute;left:0;right:0;top:150cqw;height:calc(100% - 150cqw);background-image:url('rolltop-footwell-extension.png'),linear-gradient(#21130c,#120a06);background-repeat:no-repeat;background-position:top center;background-size:100% auto,100% 100%;pointer-events:none;z-index:0}
+.grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:16px}.stack{display:grid;gap:14px}.card{box-shadow:none}
+.compose-card{padding:0;background:transparent;border:0;border-radius:0}
+.compose-card>.tabs{width:94%;height:clamp(58px,14.1vw,113px);display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:0 auto 2.2%}
+.compose-card>.tabs button{position:relative;display:flex;align-items:center;justify-content:center;padding:0;border:0;border-radius:2px;background:transparent!important;color:transparent;box-shadow:none!important;filter:none!important;transform:none;-webkit-tap-highlight-color:transparent;appearance:none}
+.compose-card>.tabs button::after{display:none}
+.compose-card>.tabs button:hover,.compose-card>.tabs button:focus,.compose-card>.tabs button:focus-visible{background:transparent!important;box-shadow:none!important;filter:none!important;outline:0}
+.compose-card>.tabs button.on{background:transparent!important;transform:none;box-shadow:none!important}
+.writing-recess{width:76%;min-height:0;margin:8px auto 0;padding:clamp(11px,2.2vw,20px);border:1px solid #704624;border-radius:6px;background:linear-gradient(180deg,#120906e8,#28150ee3);box-shadow:inset 0 10px 28px #000c,inset 0 0 0 3px #3b1b0dbd,0 3px 7px #0008}
+.section-plaque{position:relative;display:block;width:max-content;max-width:92%;margin:0 auto 10px;padding:7px 35px 7px 28px;border:1px solid #806d51;border-radius:2px;background:radial-gradient(circle at 8px 50%,#a58b61 0 1.4px,#211a14 1.7px 2.7px,transparent 2.9px),radial-gradient(circle at calc(100% - 8px) 50%,#a58b61 0 1.4px,#211a14 1.7px 2.7px,transparent 2.9px),linear-gradient(#564838,#282019);box-shadow:inset 0 0 0 1px #17120e,0 2px 4px #000;color:#ead7ad;text-align:center;font:bold clamp(11px,1.7vw,14px)/1.2 "Bookman Old Style",Georgia,serif;letter-spacing:.11em;text-transform:uppercase;text-shadow:0 1px #000;-webkit-tap-highlight-color:transparent}
+.section-plaque::after{content:"▾";position:absolute;right:17px;top:50%;transform:translateY(-53%);color:#c9aa6f;font-size:.9em}.section-plaque[aria-expanded="false"]::after{content:"▸"}
+.writing-recess.collapsed{min-height:0;padding:0;border:0;background:transparent;box-shadow:none}.writing-recess.collapsed .section-plaque{margin-bottom:0}
+.writing-recess label{color:#d8c29a;font-family:Georgia,"Times New Roman",serif;letter-spacing:.035em}
+.writing-recess input,.writing-recess textarea,.writing-recess select{background:linear-gradient(#f2e8d2,#dfcfad);border:1px solid #9b7746;color:#2a190e;border-radius:5px;box-shadow:inset 0 2px 4px #6b4a2438,0 1px #b5935a;padding:11px 12px;font-family:Georgia,"Times New Roman",serif}
+.writing-recess input::placeholder,.writing-recess textarea::placeholder{color:#79684f}.writing-recess input:focus,.writing-recess textarea:focus{border-color:#d4b66e;box-shadow:0 0 0 3px #bd914c42,inset 0 2px 4px #6b4a2438}
+.writing-recess .primary,.connection-card .primary,header button{position:relative;background:radial-gradient(circle at 9px 50%,#a68e69 0 1.5px,#251e17 1.8px 2.8px,transparent 3px),radial-gradient(circle at calc(100% - 9px) 50%,#a68e69 0 1.5px,#251e17 1.8px 2.8px,transparent 3px),linear-gradient(#62523f,#30271f 50%,#493b2f);border:1px solid #8e7959;color:#f0ddb5;font-weight:700;text-shadow:0 1px #000;box-shadow:inset 0 0 0 1px #1b1510,0 3px 5px #0007}
+.writing-recess input[type=checkbox]{accent-color:#8d6b31;box-shadow:none}
+.status{background:#120a07c9;border:1px solid #6e4927;color:#d9c8aa;border-radius:5px;font-family:system-ui,sans-serif}.status.good{border-color:#81916b;color:#dce7c5}.status.bad{border-color:#a95e52;color:#ffd7ca}
+.utility-card{position:relative;width:76%;min-height:44px;margin:18px auto 0;padding:0;background:transparent;border:0;border-radius:0;box-shadow:none}
+.connection-card{margin:0;padding:0;background:transparent;border:0;box-shadow:none}.connection-card summary{display:grid;place-items:center;width:calc(50% - 5px);min-height:44px;padding:8px 12px;border:1px solid #806846;border-radius:4px;background:linear-gradient(#4d351f,#25150d);color:#dbc38e;text-align:center;letter-spacing:.05em;cursor:pointer;box-shadow:inset 0 0 0 1px #140905,0 3px 7px #0008}.connection-card[open] summary{margin-bottom:10px}.connection-card .settings{padding:12px 14px;border:1px solid #80572f;border-radius:6px;background:linear-gradient(90deg,#241108f2,#432411f2,#241108f2);box-shadow:inset 0 0 0 2px #160904,0 3px 8px #0009}.connection-card input{background:#eee1c5;color:#28170d;border-color:#9b7746;border-radius:4px}.connection-card .help{color:#cbb995}.setup-steps{margin:9px 0 3px;padding:9px 11px;border-left:3px solid #8e7650;background:#160b0780;color:#dfcfaf;font:13px/1.45 system-ui,sans-serif}
+.utility-card>#refreshBtn{position:absolute;top:0;right:0;width:calc(50% - 5px);min-height:44px;padding:8px 12px;border:1px solid #806846;border-radius:4px;background:linear-gradient(#4d351f,#25150d);color:#ead6aa;font:bold 14px/1 "Bookman Old Style",Georgia,serif;letter-spacing:.05em;box-shadow:inset 0 0 0 1px #140905,0 3px 7px #0008}
+.blotter-card{margin-top:2.5%;padding:clamp(25px,5.4vw,43px);border:0;border-radius:5px;background:#17231b url('vertical-leather-blotter.png') center/100% 100% no-repeat;box-shadow:0 0 0 2px #080504,0 8px 18px #000c;overflow:hidden}
+.blotter-card .toolbar{background:transparent}.blotter-card h2{color:#ead7b3;text-shadow:0 2px #11180e}.count{background:#28170f;border:1px solid #8b6236;color:#e6d0a4}.blotter-card .quiet{background:#23120daa;border-color:#8b593c;color:#ead4b4}
+.drawer-heading{display:grid;justify-items:center}.drawer-toggle{font-size:clamp(13px,2.3vw,18px);padding-block:9px;margin-bottom:10px}.drawer-tools{display:flex;align-items:center;justify-content:center;gap:clamp(10px,3vw,24px);width:100%;margin-bottom:2px}.drawer-tools .count{flex:none}.drawer-tools #cleanupBtn{flex:none}.drawer-body{margin-top:14px}
+.items{gap:11px}.item{border:1px solid #ac8a57;border-radius:4px;background:linear-gradient(100deg,#eadcbd,#d7c39a);color:#25160d;box-shadow:0 4px 8px #16030399;transform:rotate(-.15deg)}.item:nth-child(even){transform:rotate(.15deg)}
+.item .icon{background:#4a2516;color:#f1d7a5;border-radius:3px}.item .title{color:#2d190e}.item .meta{color:#775e43}.item .value{color:#332013}.item .value a{color:#63310f}.item .button,.item button{background:linear-gradient(#76502d,#4a2916);border-color:#a98150;color:#f4e0bd}.item .danger{background:linear-gradient(#7d4035,#4e211c)}
+.note-toggle{flex:none;width:32px;height:32px;min-width:32px;padding:0!important;border-radius:50%!important;font:bold 22px/28px Georgia,"Times New Roman",serif!important;display:grid;place-items:center}
+.item.long-note.collapsed .value{max-height:10.15em;overflow:hidden;position:relative}
+.item.long-note.collapsed .value::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2.2em;pointer-events:none;background:linear-gradient(transparent,#d7c39a)}
+
+.empty{border-color:#a25d49;color:#e6cdb5;background:#2b0d0b66}
+.image-viewer{position:fixed;inset:0;z-index:20;display:grid;grid-template-rows:auto 1fr;gap:10px;padding:max(12px,env(safe-area-inset-top)) 12px max(12px,env(safe-area-inset-bottom));background:#050302ed;backdrop-filter:blur(8px)}
+.image-viewer .viewer-bar{display:flex;align-items:center;gap:10px;width:min(100%,900px);margin:auto;color:#f2dfbc}.image-viewer .viewer-title{min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}.image-viewer .viewer-close{flex:none;background:#3b281b;border-color:#92714b;color:#f3dfbc}
+.image-viewer .viewer-stage{position:relative;display:grid;place-items:center;min-height:0}.image-viewer img{display:block;max-width:100%;max-height:100%;object-fit:contain;border:1px solid #765536;box-shadow:0 12px 40px #000}.viewer-message{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(82%,420px);padding:14px 18px;border:1px solid #806846;border-radius:5px;background:#1b0d08e8;color:#ead8b8;text-align:center;font:15px/1.45 system-ui,sans-serif;box-shadow:0 8px 24px #000b}
+@media(max-width:760px){main{width:96%;min-height:max(100vh,240vw);padding:54.4vw 2.6% 60px;background-image:linear-gradient(180deg,#fff7ec14 0,#f5eee30f 62%,#ffffff08 100%),linear-gradient(to bottom,transparent 0 76%,#1608058a 100%),url('rolltop-desk-skin-v3.png')}.compose-card>.tabs{margin-top:0;margin-bottom:2.2%}.writing-recess{width:82%;margin-top:7px;padding:10px}.writing-recess textarea{min-height:96px}.writing-recess input,.writing-recess textarea{padding:9px 10px}.writing-recess .row{align-items:center}.writing-recess .primary{padding:9px 11px}.status{font-size:13px}.utility-card{width:82%;margin-top:16px}.connection-card label{font-size:11px}.connection-card input{padding:9px}.connection-card .row{gap:7px}.blotter-card{padding:24px 22px}.toolbar{position:static;padding:0}.item{padding:11px}.actions button,.actions a{flex:1}}
+@media(min-width:761px){.blotter-card{margin-inline:3%}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><div id="connectionDot" class="dot"></div><h1>bill's living junk drawer</h1></header>
+<main>
+  <div class="grid">
+    <div class="stack">
+      <section class="card compose-card">
+        <div class="tabs"><button id="noteTab" class="on" data-label="Note">Note</button><button id="linkTab" data-label="Link">Link</button><button id="fileTab" data-label="File">File</button></div>
+        <div id="writingRecess" class="writing-recess">
+        <button id="composeToggle" type="button" class="section-plaque" aria-expanded="true" aria-controls="composeBody">Drop something in</button>
+        <div id="composeBody">
+        <div id="textPane">
+          <label for="title">Title (optional)</label><input id="title" maxlength="120" placeholder="A quick label">
+          <label for="value" id="valueLabel">Note</label><textarea id="value" placeholder="Paste or type anything you want on your other device."></textarea>
+          <div class="row" style="margin-top:11px"><label style="margin:0"><input id="pinNewText" type="checkbox" style="width:auto"> Keep past 7 days</label><button id="saveTextBtn" class="primary">Drop in drawer</button></div>
+        </div>
+        <div id="filePane" class="hidden">
+          <div class="drop"><strong>Images, PDFs, or small files</strong><div class="help">Maximum 10 MB before encoding.</div><input id="fileInput" type="file"></div>
+          <div class="row" style="margin-top:11px"><label style="margin:0"><input id="pinNewFile" type="checkbox" style="width:auto"> Keep past 7 days</label><button id="saveFileBtn" class="primary">Upload file</button></div>
+        </div>
+        <div id="status" class="status">Connect the drawer below, then add a note, link, or file.</div>
+        </div>
+        </div>
+      </section>
+      <section class="card utility-card">
+        <details id="connectionDetails" class="connection-card">
+          <summary>Connection</summary>
+          <div class="settings">
+            <div class="setup-steps"><strong>This does not create a new account.</strong><br>1. Paste the <code>/exec</code> URL Google gives you after deploying Code.gs.<br>2. Enter the exact same <code>SECRET_TOKEN</code> written near the top of Code.gs.</div>
+            <label for="endpoint">1. Deployed Apps Script URL</label><input id="endpoint" inputmode="url" placeholder="https://script.google.com/macros/s/.../exec">
+            <label for="token">2. Matching drawer passcode</label><input id="token" type="password" autocomplete="off" placeholder="Must match SECRET_TOKEN in Code.gs">
+            <div class="row stack-mobile" style="margin-top:11px"><button id="connectBtn" class="primary">Save & test</button><button id="forgetBtn" class="quiet">Forget settings</button></div>
+            <p class="help">The passcode is not invented here—it must match Code.gs. Enter the same URL and passcode once on each device.</p>
+          </div>
+        </details>
+        <button id="refreshBtn" class="small">Refresh drawer</button>
+      </section>
+    </div>
+    <section class="card blotter-card">
+      <div class="drawer-heading">
+        <button id="drawerToggle" type="button" class="section-plaque drawer-toggle" aria-expanded="true" aria-controls="drawerBody">Your drawer</button>
+        <div class="drawer-tools"><span id="count" class="count">0 items</span><button id="cleanupBtn" class="small quiet">Clean expired</button></div>
+      </div>
+      <div id="drawerBody" class="drawer-body"><div id="items" class="items"><div class="empty">Connect to load your drawer.</div></div></div>
+    </section>
+  </div>
+</main>
+<div id="imageViewer" class="image-viewer hidden" role="dialog" aria-modal="true" aria-labelledby="viewerTitle">
+  <div class="viewer-bar"><div id="viewerTitle" class="viewer-title">Image preview</div><button id="viewerClose" class="viewer-close small">Close</button></div>
+  <div class="viewer-stage"><div id="viewerMessage" class="viewer-message">Opening image…</div><img id="viewerImage" class="hidden" alt=""></div>
+</div>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+const state={mode:'text',items:[],busy:false};
+const SETTINGS_KEY='billsJunkDrawerConnectionV1';
+
+function settings(){return {endpoint:$('endpoint').value.trim().replace(/\/$/,''),token:$('token').value.trim()}}
+function loadSettings(){try{const s=JSON.parse(localStorage.getItem(SETTINGS_KEY)||'{}');$('endpoint').value=s.endpoint||'';$('token').value=s.token||''}catch(_){}}
+function saveSettings(){localStorage.setItem(SETTINGS_KEY,JSON.stringify(settings()))}
+function configured(){const s=settings();return /^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/(exec|dev)$/.test(s.endpoint)&&!!s.token}
+function setStatus(message,kind=''){$('status').textContent=message;$('status').className='status'+(kind?' '+kind:'')}
+function setConnected(ok){$('connectionDot').classList.toggle('ok',!!ok)}
+function escapeHtml(value){return String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]))}
+function fmtDate(value){const d=new Date(value);return Number.isNaN(d.getTime())?'Unknown time':d.toLocaleString([], {month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})}
+function fmtSize(n){n=Number(n)||0;if(n<1024)return n+' B';if(n<1048576)return (n/1024).toFixed(1)+' KB';return (n/1048576).toFixed(1)+' MB'}
+function directViewUrl(item){return item&&item.fileId?'https://drive.google.com/uc?export=view&id='+encodeURIComponent(item.fileId):''}
+function delay(ms){return new Promise(resolve=>setTimeout(resolve,ms))}
+async function listWithRetry(){let firstError;try{return await post('list')}catch(err){firstError=err;await delay(700)}try{return await post('list')}catch(err){throw err||firstError}}
+function setCollapsible(toggleId,bodyId,expanded,containerId=''){const toggle=$(toggleId),body=$(bodyId);toggle.setAttribute('aria-expanded',String(expanded));body.classList.toggle('hidden',!expanded);if(containerId)$(containerId).classList.toggle('collapsed',!expanded)}
+function toggleCollapsible(toggleId,bodyId,containerId=''){setCollapsible(toggleId,bodyId,$(toggleId).getAttribute('aria-expanded')!=='true',containerId)}
+function endpointFor(action){const s=settings();return s.endpoint+'?action='+encodeURIComponent(action)+'&token='+encodeURIComponent(s.token)+'&_='+Date.now()}
+
+async function get(action){
+  if(!configured())throw new Error('Add the Apps Script URL and passcode in Connection settings.');
+  const response=await fetch(endpointFor(action),{method:'GET',redirect:'follow',cache:'no-store'});
+  if(!response.ok)throw new Error('Connection returned HTTP '+response.status+'.');
+  const data=await response.json();if(!data.ok)throw new Error(data.error||'Request failed.');return data;
+}
+async function post(action,extra={}){
+  if(!configured()){$('connectionDetails').open=true;throw new Error('Open “Connect this device” and add the Apps Script URL and matching Code.gs passcode.');}
+  const s=settings();
+  const response=await fetch(s.endpoint,{method:'POST',redirect:'follow',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({submissionType:'junkDrawer',action,token:s.token,...extra})});
+  if(!response.ok)throw new Error('Connection returned HTTP '+response.status+'.');
+  const data=await response.json();if(!data.ok)throw new Error(data.error||'Request failed.');return data;
+}
+
+function chooseMode(mode){
+  state.mode=mode;['note','link','file'].forEach(x=>$(x+'Tab').classList.toggle('on',x===(mode==='text'?'note':mode)));
+  $('textPane').classList.toggle('hidden',mode==='file');$('filePane').classList.toggle('hidden',mode!=='file');
+  $('valueLabel').textContent=mode==='link'?'Web address':'Note';$('value').placeholder=mode==='link'?'https://example.com':'Paste or type anything you want on your other device.';
+  setCollapsible('composeToggle','composeBody',true,'writingRecess');
+}
+async function testConnection(){
+  saveSettings();setStatus('Testing connection…');
+  try{const data=await listWithRetry();state.items=data.items||[];setConnected(true);renderItems();setStatus('Connected. This device can open the shared drawer.','good');$('connectionDetails').open=false}
+  catch(err){setConnected(false);$('connectionDetails').open=true;setStatus('Connection failed: '+err.message,'bad')}
+}
+async function loadItems(){
+  if(!configured()){setConnected(false);$('items').innerHTML='<div class="empty">Open Connection settings to connect this device.</div>';return}
+  $('items').innerHTML='<div class="empty">Opening drawer…</div>';
+  try{const data=await listWithRetry();state.items=data.items||[];setConnected(true);renderItems()}
+  catch(err){setConnected(false);$('items').innerHTML='<div class="empty">Could not reach the drawer. Your saved connection is still stored; tap Refresh drawer to try again.<br>'+escapeHtml(err.message)+'</div>';setStatus('Temporary connection problem: '+err.message,'bad')}
+}
+function renderItems(){
+  $('count').textContent=state.items.length+' item'+(state.items.length===1?'':'s');
+  if(!state.items.length){$('items').innerHTML='<div class="empty">The drawer is empty. Drop something in from any connected device.</div>';return}
+  $('items').innerHTML=state.items.map(item=>{
+    const icon=item.type==='file'?'📎':item.type==='link'?'🔗':'📝';
+    const longText=item.type==='text'&&String(item.value||'').length>450;
+    let body='';
+    if(item.type==='link'){const safe=/^https?:\/\//i.test(item.value||'')?item.value:'#';body='<div class="value"><a href="'+escapeHtml(safe)+'" target="_blank" rel="noopener">'+escapeHtml(item.value)+'</a></div>'}
+    else if(item.type==='text')body='<div class="value">'+escapeHtml(item.value)+'</div>';
+    else body='<div class="value">'+escapeHtml(item.fileName||'File')+' · '+fmtSize(item.size)+'</div>';
+    const isImage=item.type==='file'&&/^image\//i.test(item.mimeType||'');
+    const browserUrl=directViewUrl(item)||item.viewUrl||item.downloadUrl||'';
+    const open=isImage&&item.fileId?'<button class="small" data-action="preview">Open</button>':item.type==='file'&&browserUrl?'<a class="button small" href="'+escapeHtml(browserUrl)+'" target="_blank" rel="noopener">Open</a>':'';
+    const noteToggle=longText?'<button class="note-toggle" data-action="toggle-note" aria-expanded="false" title="Expand note">+</button>':'';
+    return '<article class="item'+(longText?' long-note collapsed':'')+'" data-id="'+escapeHtml(item.id)+'"><div class="item-top"><div class="icon">'+icon+'</div><div class="item-main"><div class="title">'+escapeHtml(item.title||'Untitled')+'</div><div class="meta">'+fmtDate(item.createdAt)+(item.pinned?' · pinned':item.stale?' · expired':' · removes '+fmtDate(item.expiresAt))+'</div></div>'+noteToggle+'</div>'+body+'<div class="actions">'+open+'<button class="small" data-action="pin">'+(item.pinned?'Unpin':'Pin')+'</button><button class="small danger" data-action="delete">Delete</button></div></article>';
+  }).join('');
+}
+async function saveText(){
+  const value=$('value').value.trim();if(!value){setStatus('Type or paste something first.','bad');return}
+  if(state.mode==='link'&&!/^https?:\/\//i.test(value)){setStatus('A link must start with http:// or https://','bad');return}
+  $('saveTextBtn').disabled=true;setStatus('Saving…');
+  try{await post('createText',{itemType:state.mode,title:$('title').value.trim(),value,pinned:$('pinNewText').checked});$('title').value='';$('value').value='';$('pinNewText').checked=false;setStatus('Saved. It is now available on your other connected devices.','good');await loadItems()}
+  catch(err){setStatus('Save failed: '+err.message,'bad')}finally{$('saveTextBtn').disabled=false}
+}
+function fileToBase64(file){return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(String(reader.result).split(',').pop());reader.onerror=()=>reject(new Error('Could not read that file.'));reader.readAsDataURL(file)})}
+async function saveFile(){
+  const file=$('fileInput').files[0];if(!file){setStatus('Choose a file first.','bad');return}if(file.size>10*1024*1024){setStatus('That file is larger than the 10 MB limit.','bad');return}
+  $('saveFileBtn').disabled=true;setStatus('Preparing '+file.name+'…');
+  try{const base64Data=await fileToBase64(file);setStatus('Uploading '+file.name+'…');await post('createFile',{fileName:file.name,mimeType:file.type||'application/octet-stream',base64Data,pinned:$('pinNewFile').checked});$('fileInput').value='';$('pinNewFile').checked=false;setStatus('File saved. It is now available on your other connected devices.','good');await loadItems()}
+  catch(err){setStatus('Upload failed: '+err.message,'bad')}finally{$('saveFileBtn').disabled=false}
+}
+async function itemAction(event){
+  const button=event.target.closest('[data-action]');if(!button)return;const article=button.closest('[data-id]');const item=state.items.find(x=>String(x.id)===article.dataset.id);if(!item)return;
+  if(button.dataset.action==='toggle-note'){
+    const collapsed=article.classList.toggle('collapsed');
+    button.textContent=collapsed?'+':'−';
+    button.setAttribute('aria-expanded',String(!collapsed));
+    button.setAttribute('title',collapsed?'Expand note':'Collapse note');
+    return;
+  }
+  if(button.dataset.action==='preview'){button.disabled=true;try{await openImageViewer(item)}finally{button.disabled=false}return}
+  button.disabled=true;
+  try{if(button.dataset.action==='pin')await post('pin',{id:item.id,pinned:!item.pinned});else if(button.dataset.action==='delete'){if(!confirm('Delete “'+(item.title||'this item')+'”?'))return;await post('delete',{id:item.id})}await loadItems()}
+  catch(err){setStatus('Action failed: '+err.message,'bad')}finally{button.disabled=false}
+}
+async function openImageViewer(item){
+  $('viewerTitle').textContent=item.title||item.fileName||'Image preview';$('viewerImage').alt=item.title||item.fileName||'Saved image';$('viewerImage').classList.add('hidden');$('viewerImage').removeAttribute('src');$('viewerMessage').textContent='Opening image…';$('viewerMessage').classList.remove('hidden');$('imageViewer').classList.remove('hidden');document.body.style.overflow='hidden';$('viewerClose').focus();
+  try{const data=await post('getFile',{id:item.id});$('viewerImage').onload=()=>{$('viewerMessage').classList.add('hidden');$('viewerImage').classList.remove('hidden')};$('viewerImage').onerror=()=>{$('viewerMessage').textContent='The image data arrived, but this browser could not display it.'};$('viewerImage').src='data:'+(data.mimeType||item.mimeType||'image/jpeg')+';base64,'+data.base64Data}
+  catch(err){$('viewerMessage').textContent='Could not open this image: '+err.message}
+}
+function closeImageViewer(){$('imageViewer').classList.add('hidden');$('viewerImage').onload=null;$('viewerImage').onerror=null;$('viewerImage').removeAttribute('src');$('viewerImage').classList.add('hidden');$('viewerMessage').classList.remove('hidden');document.body.style.overflow=''}
+async function cleanup(){
+  $('cleanupBtn').disabled=true;try{const data=await post('cleanup');setStatus(data.message||'Cleanup complete.','good');await loadItems()}catch(err){setStatus('Cleanup failed: '+err.message,'bad')}finally{$('cleanupBtn').disabled=false}
+}
+
+$('noteTab').onclick=()=>chooseMode('text');$('linkTab').onclick=()=>chooseMode('link');$('fileTab').onclick=()=>chooseMode('file');
+$('composeToggle').onclick=()=>toggleCollapsible('composeToggle','composeBody','writingRecess');$('drawerToggle').onclick=()=>toggleCollapsible('drawerToggle','drawerBody');
+$('connectBtn').onclick=testConnection;$('saveTextBtn').onclick=saveText;$('saveFileBtn').onclick=saveFile;$('refreshBtn').onclick=loadItems;$('cleanupBtn').onclick=cleanup;$('items').onclick=itemAction;
+$('viewerClose').onclick=closeImageViewer;$('imageViewer').onclick=e=>{if(e.target===$('imageViewer')||e.target.classList.contains('viewer-stage'))closeImageViewer()};document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('imageViewer').classList.contains('hidden'))closeImageViewer()});
+$('forgetBtn').onclick=()=>{localStorage.removeItem(SETTINGS_KEY);$('endpoint').value='';$('token').value='';setConnected(false);$('connectionDetails').open=true;setStatus('Connection settings removed from this browser.');loadItems()};
+loadSettings();chooseMode('text');if(configured())loadItems();else{setStatus('Before first use, open “Connect this device” below and enter the two matching connection values.');$('connectionDetails').open=false;}
+</script>
+</body>
+</html>
