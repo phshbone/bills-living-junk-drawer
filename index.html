@@ -76,9 +76,9 @@ main::after{content:"";position:absolute;left:0;right:0;top:150cqw;height:calc(1
     <div class="stack">
       <section class="card compose-card">
         <div class="tabs"><button id="noteTab" class="on" data-label="Note">Note</button><button id="linkTab" data-label="Link">Link</button><button id="fileTab" data-label="File">File</button></div>
-        <div id="writingRecess" class="writing-recess">
-        <button id="composeToggle" type="button" class="section-plaque" aria-expanded="true" aria-controls="composeBody">Drop something in</button>
-        <div id="composeBody">
+        <div id="writingRecess" class="writing-recess collapsed">
+        <button id="composeToggle" type="button" class="section-plaque" aria-expanded="false" aria-controls="composeBody">Drop something in</button>
+        <div id="composeBody" class="hidden">
         <div id="textPane">
           <label for="title">Title (optional)</label><input id="title" maxlength="120" placeholder="A quick label">
           <label for="value" id="valueLabel">Note</label><textarea id="value" placeholder="Paste or type anything you want on your other device."></textarea>
@@ -108,10 +108,10 @@ main::after{content:"";position:absolute;left:0;right:0;top:150cqw;height:calc(1
     </div>
     <section class="card blotter-card">
       <div class="drawer-heading">
-        <button id="drawerToggle" type="button" class="section-plaque drawer-toggle" aria-expanded="true" aria-controls="drawerBody">Your drawer</button>
+        <button id="drawerToggle" type="button" class="section-plaque drawer-toggle" aria-expanded="false" aria-controls="drawerBody">Your drawer</button>
         <div class="drawer-tools"><span id="count" class="count">0 items</span><button id="cleanupBtn" class="small quiet">Clean expired</button></div>
       </div>
-      <div id="drawerBody" class="drawer-body"><div id="items" class="items"><div class="empty">Connect to load your drawer.</div></div></div>
+      <div id="drawerBody" class="drawer-body hidden"><div id="items" class="items"><div class="empty">Connect to load your drawer.</div></div></div>
     </section>
   </div>
 </main>
@@ -159,7 +159,6 @@ function chooseMode(mode){
   state.mode=mode;['note','link','file'].forEach(x=>$(x+'Tab').classList.toggle('on',x===(mode==='text'?'note':mode)));
   $('textPane').classList.toggle('hidden',mode==='file');$('filePane').classList.toggle('hidden',mode!=='file');
   $('valueLabel').textContent=mode==='link'?'Web address':'Note';$('value').placeholder=mode==='link'?'https://example.com':'Paste or type anything you want on your other device.';
-  setCollapsible('composeToggle','composeBody',true,'writingRecess');
 }
 async function testConnection(){
   saveSettings();setStatus('Testing connection…');
