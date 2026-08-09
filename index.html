@@ -155,10 +155,11 @@ async function post(action,extra={}){
   const data=await response.json();if(!data.ok)throw new Error(data.error||'Request failed.');return data;
 }
 
-function chooseMode(mode){
+function chooseMode(mode,openComposer=true){
   state.mode=mode;['note','link','file'].forEach(x=>$(x+'Tab').classList.toggle('on',x===(mode==='text'?'note':mode)));
   $('textPane').classList.toggle('hidden',mode==='file');$('filePane').classList.toggle('hidden',mode!=='file');
   $('valueLabel').textContent=mode==='link'?'Web address':'Note';$('value').placeholder=mode==='link'?'https://example.com':'Paste or type anything you want on your other device.';
+  if(openComposer)setCollapsible('composeToggle','composeBody',true,'writingRecess');
 }
 async function testConnection(){
   saveSettings();setStatus('Testing connection…');
@@ -231,7 +232,7 @@ $('composeToggle').onclick=()=>toggleCollapsible('composeToggle','composeBody','
 $('connectBtn').onclick=testConnection;$('saveTextBtn').onclick=saveText;$('saveFileBtn').onclick=saveFile;$('refreshBtn').onclick=loadItems;$('cleanupBtn').onclick=cleanup;$('items').onclick=itemAction;
 $('viewerClose').onclick=closeImageViewer;$('imageViewer').onclick=e=>{if(e.target===$('imageViewer')||e.target.classList.contains('viewer-stage'))closeImageViewer()};document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('imageViewer').classList.contains('hidden'))closeImageViewer()});
 $('forgetBtn').onclick=()=>{localStorage.removeItem(SETTINGS_KEY);$('endpoint').value='';$('token').value='';setConnected(false);$('connectionDetails').open=true;setStatus('Connection settings removed from this browser.');loadItems()};
-loadSettings();chooseMode('text');if(configured())loadItems();else{setStatus('Before first use, open “Connect this device” below and enter the two matching connection values.');$('connectionDetails').open=false;}
+loadSettings();chooseMode('text',false);if(configured())loadItems();else{setStatus('Before first use, open “Connect this device” below and enter the two matching connection values.');$('connectionDetails').open=false;}
 </script>
 </body>
 </html>
