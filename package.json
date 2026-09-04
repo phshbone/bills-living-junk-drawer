@@ -1,0 +1,11 @@
+{
+  "name": "bills-living-junk-drawer-smoke",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "smoke": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0"
+  }
+}
